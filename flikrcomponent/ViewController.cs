@@ -26,11 +26,13 @@ namespace flikrcomponent
 		//	addView();
 
 			UIView mainview = new UIView (new CGRect(20,20,888,742));
+			mainview.Layer.CornerRadius = 10;
+			mainview.Layer.MasksToBounds = true;
 			View.Add (mainview);
 
 
 
-			SectionDetailView cview = new SectionDetailView (0, 0, 888, 742);
+			CharacterBadrView cview = new CharacterBadrView (0, 0, 888, 742);
 			mainview.Add (cview);
 
 			UIView header = new UIView (new CGRect (0, 0, 888, 60));

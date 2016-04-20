@@ -4,6 +4,7 @@ using UIKit;
 using CoreGraphics;
 using System.Collections.Generic;
 using Foundation;
+using Badr;
 
 namespace flikrcomponent
 {
@@ -29,6 +30,9 @@ namespace flikrcomponent
 		nfloat _x = 0 ;
 		nfloat _y = 0 ;
 
+
+		UIView _topview , _backview ; 
+		BadrScrollView pscroll ;
 
 
 		void initControls()

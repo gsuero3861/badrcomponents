@@ -117,6 +117,7 @@
     <BundleResource Include="slice5%402x.png" />
     <BundleResource Include="badrassets\starblack.png" />
     <BundleResource Include="badrassets\starwhite.png" />
+    <BundleResource Include="abuyahl.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="characterassets\" />

@@ -41,6 +41,7 @@ namespace flikrcomponent
 		UIView _topview , _backview ;
 		UIImageView _backimage ;
 		UIView _header_view , _description_view ;
+		BadrScrollView pscroll ;
 
 		void initParallax()
 		{
@@ -60,13 +61,19 @@ namespace flikrcomponent
 			_backview.Add (_backimage);
 
 			//Set the main view for Badr
-			BadrScrollView pscroll = new BadrScrollView (0, 0, _width, _height);
+			pscroll = new BadrScrollView (0, 0, _width, _height);
 			pscroll.SetContent (_topview, 5000);
 			pscroll.SetBackContent (_backview, 1500);
 			Add (pscroll);
 		}
 
+
+
 		UIImageView _icon_image ;
+		UILabel _year_label ;
+		UILabel _released_label, _pages_label , _creator_label, _rating_label ;
+		UIView _open_view  ;
+		BadrRateView _rate_view1 , _rate_view2 ;
 		void loadHeaderView()
 		{
 			_header_view = new UIView (new CGRect(0,0,_width, _topheight));
@@ -79,11 +86,119 @@ namespace flikrcomponent
 			_icon_image.Layer.MasksToBounds = true;
 			_header_view.Add (_icon_image);
 
+			//year label
+			_year_label = new UILabel(new CGRect(132,82,300,20)){
+				Text = "2016 | 24 pages",
+				TextColor = UIColor.White,
+				Font = UIFont.FromName("HelveticaNeue" , 18 )
+			};
+			_header_view.Add (_year_label);
 
+			//RATING VIEW
+			var genre_label = new UILabel(new CGRect(132,106, 300 , 20)){
+				Text = "Genre Comic",
+				TextColor =  UIColor.White,
+				Font =  UIFont.FromName("HelveticaNeue-Light", 14)
+			};
+			_header_view.Add (genre_label);	
+
+			_rate_view1 = new BadrRateView (132, 126);
+			_header_view.Add (_rate_view1);
+
+
+			var rates_label = new UILabel(new CGRect(132,150, 300 , 20)){
+				Text = "(116 Ratings)",
+				TextColor =  UIColor.White,
+				Font =  UIFont.FromName("HelveticaNeue", 14)
+			};
+			_header_view.Add (rates_label);	
+
+
+
+			// Released 
+			_released_label = new UILabel(new CGRect(20,182,300,18)){
+				Text = "Released : Feb 24, 2016",
+				TextColor = UIColor.White,
+				Font = UIFont.FromName("HelveticaNeue" , 14 )
+			};
+			_header_view.Add (_released_label);
+
+			// Pages 
+			_pages_label = new UILabel(new CGRect(20,200,300,18)){
+				Text = "Pages : 24",
+				TextColor = UIColor.White,
+				Font = UIFont.FromName("HelveticaNeue" , 14 )
+			};
+			_header_view.Add (_pages_label);
+
+			// Creators 
+			_creator_label = new UILabel(new CGRect(20,218,300,18)){
+				Text = "Creator :  NWES",
+				TextColor = UIColor.White,
+				Font = UIFont.FromName("HelveticaNeue" , 14 )
+			};
+			_header_view.Add (_creator_label);
+
+
+			// Rating 
+			_rating_label = new UILabel(new CGRect(20,236,300,18)){
+				Text = "Rating : 12+",
+				TextColor = UIColor.White,
+				Font = UIFont.FromName("HelveticaNeue" , 14 )
+			};
+			_header_view.Add (_rating_label);
+
+
+
+
+			//Open button-view 
+			_open_view = new UIView(new CGRect(612,216, 94,36 ));
+			_open_view.Add (new UIImageView (UIImage.FromFile ("characterassets/button.png")));
+			_open_view.Add (new UILabel (new CGRect (0, 0, 94, 36)){
+				Text = "open",
+				Font = UIFont.FromName("HelveticaNeue", 16),
+				TextAlignment = UITextAlignment.Center,
+				TextColor =  UIColor.White
+			});
+			UITapGestureRecognizer open_gesture = new UITapGestureRecognizer (() => {
+				
+			});
+			_open_view.AddGestureRecognizer (open_gesture);
+			_header_view.Add (_open_view);
+		}
+
+		/// <summary>
+		/// Number of pages property
+		/// </summary>
+		int num_pages = 10  ;
+		public int NumberPages
+		{
+			get { return num_pages; }
+			set 
+			{
+				num_pages = value; 
+				_year_label.Text = Year + " | " + num_pages + " pages";
+			}
 		}
 
 
-		UIImageView _slice_image ;
+		/// <summary>
+		/// Number of pages property
+		/// </summary>
+		int year = 2000  ;
+		public int Year
+		{
+			get { return year; }
+			set 
+			{
+				year = value; 
+				_year_label.Text = year + " | " + num_pages + " pages";
+			}
+		}
+
+
+		UIImageView _slice_image ; 
+		UILabel _summary_title , _credits_title ;
 
 		void loadDescription()
 		{

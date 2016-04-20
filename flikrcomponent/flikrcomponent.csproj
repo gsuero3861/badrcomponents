@@ -100,6 +100,26 @@
     </Compile>
     <Compile Include="BadrHomeView.cs" />
     <Compile Include="BadrScrollView.cs" />
+    <Compile Include="PostBadrView.cs" />
+    <Compile Include="CharacterBadrView.cs" />
+    <Compile Include="SectionDetailView.cs" />
+    <Compile Include="BadrRateView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <BundleResource Include="myimage.jpg" />
+    <BundleResource Include="abu.png" />
+    <BundleResource Include="cardimg.png" />
+    <BundleResource Include="characterassets\button.png" />
+    <BundleResource Include="characterassets\button%402x.png" />
+    <BundleResource Include="fullpag.png" />
+    <BundleResource Include="slice5.png" />
+    <BundleResource Include="slice5%402x.png" />
+    <BundleResource Include="badrassets\starblack.png" />
+    <BundleResource Include="badrassets\starwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="characterassets\" />
+    <Folder Include="badrassets\" />
+  </ItemGroup>
 </Project>

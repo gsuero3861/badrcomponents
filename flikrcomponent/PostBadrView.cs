@@ -5,26 +5,37 @@ using CoreGraphics;
 using System.Collections.Generic;
 using Foundation;
 
-namespace Badr
+namespace flikrcomponent
 {
-	public class BadrHomeView : UIView
+	public class PostBadrView : UIView
 	{
-		public BadrHomeView (nfloat x, nfloat y,nfloat width, nfloat height)
+		public PostBadrView (nfloat x, nfloat y,nfloat width, nfloat height)
 		{
 			AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
 
 			_width = width;
 			_height = height;
+			_x = x;
+			_y = y;
 
-			Frame = new CGRect (x, y, width, height);
+			Frame = new CGRect (_x, _y, _width, _height);
 
-
+			initControls (); 
 		}
-
 
 		//settings
 		nfloat _width = 888 ;
 		nfloat _height = 742 ;
+		nfloat _x = 0 ;
+		nfloat _y = 0 ;
+
+
+
+		void initControls()
+		{
+			
+		}
+
 	}
 }
 
